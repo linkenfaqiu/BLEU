@@ -113,4 +113,12 @@ $$
 ![](Readme/164f0b33bb9c4cb48330b69fba5c726d87e85dd291004db59a7760e32cff27ca.png)
 
 ## 六、总结
-BLEU是一个非常简单、快速、粗略的评估机器翻译准确率的指标,当面对多个翻译模型且需要快速选择模型的场景, 可以使用这个指标来评估模型的好坏, 但是在需要精确评估翻译文本质量的场景, 这个指标就不是那么适用了。
+6.1 BLEU是一个非常简单、快速、粗略的评估机器翻译准确率的指标,当面对多个翻译模型且需要快速选择模型的场景, 可以使用这个指标来评估模型的好坏, 但是在需要精确评估翻译文本质量的场景, 这个指标就不是那么适用了。当然，BLEU也可以用于文本生成的验证上。
+
+6.2 以下给出一个可以在线计算BLEU值的网站：https://www.letsmt.eu/Bleu.aspx
+
+6.3 当然，很多用于机器翻译的包里面就有计算BLEU的代码，比如tensor2tensor，安装完后执行： t2t-bleu --reference=REFERENCE --translation=TRANSLASTION
+
+(以上REFERENCE和TRANSLATION都是文本文件名)
+
+6.4 “BLEU: a Method for Automatic Evaluation of Machine Translation”一文提到BLEU方法要求有参考译文，对于没有参考译文的全新内容的翻译，BLEU方法是不适用的。需要注意的是，一般给出的reference是多句话，之所以给出多个句子，是因为单个句子可能无法和生成的句子做很好地匹配。
